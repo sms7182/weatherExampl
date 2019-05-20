@@ -3,7 +3,11 @@ const request=require('request');
 const url='https://api.darksky.net/forecast/1d2c0ed3bf7c79f5c7d1dd373f7cd995/37.8267,-122.4233?lang=fr';
 
 request({url:url,json:true},(error,response)=>{
-console.log(response.body.daily.data[0].summary+' it is currently'+' degress out. there is  a '+ response.body.currently.precipProbability+' % chance of  rain');
+        if(error){
+                console.log(error)
+        }
+        else{
+console.log(response.body.daily.data[0].summary+' it is currently'+' degress out. there is  a '+ response.body.currently.precipProbability+' % chance of  rain');}
 
 
 })
